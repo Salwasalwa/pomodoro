@@ -14,13 +14,22 @@ h1 {
 
 h2 {
     text-align: center;
-    border-bottom: 1px solid black;
     width: 100%;
+    border-bottom: 1px solid black;
+    min-height: 40px;
 }
 
 div {
     border: 1px solid black;
-    border-radius: 4px;
+}
+
+#divInput {
+    height: 3em;
+}
+
+input {
+    height: 100%;
+    border: none;
 }
 
 li{
@@ -31,18 +40,29 @@ li{
 input {
     width: 100%;
     border: none;
+    height: 100%;
+}
+
+.fleche {
+    width: 100%;
+    border: 1px solid black;
+    border-width: 40px;
+    border-color: transparent transparent transparent black;
+    height: 0;
+
 }
 
 button{
     background-color: #e6e6e6;
     width: 100%;
     min-height: 3em;
-    border: 3px solid black;
+    border: 1px solid black;
+    border-radius: 1px;
 }
 
 i {
     margin-left: 3em;
-    padding: 0.4em;
+    padding: 0.4em 0.5em;
     border-radius: 50%;
     color: #e6e6e6;
     background-color: black;
@@ -52,7 +72,7 @@ ul {
     padding: 0;
 }
 
-#crono {
+#chrono {
     border: 1px solid black;
     text-align: center;
     margin: auto;
@@ -65,9 +85,13 @@ ul {
     margin: auto;
 }
 
+.divTitle {
+    border-top: none;
+    border-right: none;
+}
 .col-md-4 {
-    min-height: 26em !important;
-
+    min-height: 36em !important;
+    border-radius: 9px;
 }
 .col-md-2 {
     border: none;
@@ -77,9 +101,23 @@ ul {
     border-bottom: none;
 }
 
+#firstTitle {
+    border: none;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
 .container {
     border: none;
 }
+.row {
+    border-radius: 4px;
+}
+
+.row:last-child {
+    border: none;
+}
+
 .no-padding{
     padding: 0 !important;
 }

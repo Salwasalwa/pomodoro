@@ -13,7 +13,7 @@
     <h1>Kanban Pomodoro</h1>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 no-padding" >
+            <div id="divInput" class="col-md-10 no-padding">
                 <input type="text" name="" value="" placeholder="Nouvelle tâche">
             </div>
             <div class="col-md-2 no-padding">
@@ -23,7 +23,9 @@
 
         <div class="row">
             <div class="col-md-4 no-margin">
-                <h2>A fair</h2>
+                <div class="divTitle">
+                    <h2 id="firstTitle">A faire</h2>
+                </div>
                 <ul>
                     <li>Tâches 3 <i class="fa fa-times" aria-hidden="true"></i>
                     </li>
@@ -35,17 +37,20 @@
             </div>
 
             <div class="col-md-4 no-margin">
-
-                <h2>En cours</h2>
+                <div class="no-padding divTitle">
+                    <h2 class="fleche no-margin">En cours</h2>
+                </div>
                 <ul>
-                    <li><input type="text" name="" value="25:00" id="crono"></li>
+                    <li><input type="text" name="" value="25:00" id="chrono"></li>
                     <li><button type="button" name="button" class="encours">Début</button></li>
                     <li><button type="button" name="button" class="encours">Pause</button></li>
                 </ul>
             </div>
 
             <div class="col-md-4 no-margin">
-                <h2>Fait</h2>
+                <div class="no-padding divTitle">
+                    <h2 class="fleche no-margin">Fait</h2>
+                </div>
                 <ul>
                     <li>Tâches 1 </li>
                     <li>Tâches 2</li>
