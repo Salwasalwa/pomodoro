@@ -37,7 +37,7 @@
                 <div class="no-padding divTitle">
                     <h2 class="fleche no-margin">En cours</h2>
                 </div>
-                <li><input type="text" name="" value=""></li>
+                <li><input type="text" name="" value="25:00" id="chrono"></li>
                 <li><button type="button" name="button" class="encours">Début</button></li>
                 <li><button type="button" name="button" class="encours">Pause</button></li>
                 </ul>
@@ -58,16 +58,17 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function() {
-        var tache = "";
+        var tache;
+        var litache;
         $("#ajouter").click(function() {
             tache = $("#taches")
             tache = tache.val();
-            var litache = $("<li>"+tache+  '<a>'+'<i class="fa fa-times" aria-hidden="true">'+'</a>'+"</li>")
+            litache = $("<li class='tachesAFaire'>"+tache+  '<a href="#" class="supprimer">'+'<i class="fa fa-times" aria-hidden="true">'+'</a>'+"</li>")
             $("#faire").append(litache)
-
-
+            $(".supprimer").click(function(li) {
+                $(this).parent().remove();
+            })
         });
-
     });
 </script>
 
