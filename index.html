@@ -95,7 +95,6 @@
         });
 
 
-
         function chrono() {
             end = new Date();
             diff = end - start;
@@ -113,14 +112,14 @@
 
             $("#timer").html(min + " : " + sec);
 
-            if (min == 24 && sec == 58) {
+            if (min == 24 && sec == 50) {
                 var txt;
                 var r = confirm("Avez vous fini?")
                 if (r == true){
-                    txt = "Click sur Ok"
-                }else {
-                    txt = "click sur Cancel"
-                    Start();
+                    alert("OK");
+                }
+                else {
+                        start = new Date();
                 }
             }
 
@@ -128,18 +127,14 @@
 
         function Start() {
             $(".tog").toggle();
-            if (reset) start = new Date();
-            else {
                 start = new Date() - diff
                 start = new Date(start)
-            }
             timerID = setInterval(chrono, -10);
         }
 
         function Stop() {
             $(".tog").toggle();
             clearTimeout(timerID);
-
         }
 
     });
