@@ -1,0 +1,17 @@
+{
+  "name": "pomodoro",
+  "homepage": "https://github.com/Salwasalwa/pomodoro",
+  "authors": [
+    "salwa <salwaoudad@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
