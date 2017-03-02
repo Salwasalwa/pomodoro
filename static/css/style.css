@@ -73,12 +73,17 @@ ul {
 #faire li:active{
     background-color: #e6e6e6;
 }
-#chrono {
-    border: 1px solid black;
+#timer {
+    border: 3px solid black;
+    border-radius: 5px;
     text-align: center;
     margin: auto;
-    width: 80%;
-    min-height: 3em;
+    width: 90%;
+    min-height: 4em;
+    line-height: 4em;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 2em;
 }
 
 .encours {

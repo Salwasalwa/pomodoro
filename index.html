@@ -30,7 +30,7 @@
                 <div class="divTitle">
                     <h2 id="firstTitle">A faire</h2>
                 </div>
-                <ul id="faire" >
+                <ul id="faire">
 
                 </ul>
             </div>
@@ -39,7 +39,7 @@
                 <div class="no-padding divTitle">
                     <h2 class="fleche no-margin">En cours</h2>
                 </div>
-                <li><span id="timer">00 : 25 : 00</span></li>
+                <li><span id="timer">25 : 00</span></li>
                 <li><button type="button" name="button" class="encours" id="start">Début</button></li>
                 <li><button type="button" name="button" class="encours" id="stop">Pause</button></li>
                 </ul>
@@ -67,7 +67,7 @@
         $("#ajouter").click(function() {
             tache = $("#taches")
             tache = tache.val();
-            litache = $("<li class='tachesAFaire'>"+tache+  '<a href="#" class="supprimer">'+'<i class="fa fa-times" aria-hidden="true">'+'</a>'+"</li>")
+            litache = $("<li class='tachesAFaire'>" + tache + '<a href="#" class="supprimer">' + '<i class="fa fa-times" aria-hidden="true">' + '</a>' + "</li>")
             $("#faire").append(litache)
             $(".supprimer").click(function(li) {
                 $(this).parent().remove();
@@ -75,7 +75,7 @@
         });
 
 
-        var startTime = 24;
+
         var start = 0;
         var end = 0;
         var diff = 0;
@@ -101,7 +101,7 @@
             diff = end - start;
             diff = new Date(diff);
             var sec = diff.getSeconds();
-            var min = diff.getMinutes() ;
+            var min = diff.getMinutes();
 
 
             if (sec < 60) {
@@ -111,7 +111,19 @@
                 min = "24" - min;
             }
 
-            $("#timer").html(min + " : " + sec );
+            $("#timer").html(min + " : " + sec);
+
+            if (min == 24 && sec == 58) {
+                var txt;
+                var r = confirm("Avez vous fini?")
+                if (r == true){
+                    txt = "Click sur Ok"
+                }else {
+                    txt = "click sur Cancel"
+                    Start();
+                }
+            }
+
         }
 
         function Start() {
@@ -121,19 +133,15 @@
                 start = new Date() - diff
                 start = new Date(start)
             }
-            // timerID = setInterval(chrono, -10);
-        }
-
-        function Reset() {
-            $("#timer").html("00 : 00");
-            start = new Date();
-            reset = true;
+            timerID = setInterval(chrono, -10);
         }
 
         function Stop() {
             $(".tog").toggle();
             clearTimeout(timerID);
+
         }
+
     });
 </script>
 
