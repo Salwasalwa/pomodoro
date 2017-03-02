@@ -27,15 +27,13 @@ div {
     height: 3em;
 }
 
-input {
-    height: 100%;
-    border: none;
-}
+
 
 li{
     list-style-type: none;
-    margin: 2em 0;
+    margin: 2em auto;
     text-align: center;
+    width: 80%;
 }
 input {
     width: 100%;
@@ -71,7 +69,10 @@ i {
 ul {
     padding: 0;
 }
-
+#faire li:hover,
+#faire li:active{
+    background-color: #e6e6e6;
+}
 #chrono {
     border: 1px solid black;
     text-align: center;
