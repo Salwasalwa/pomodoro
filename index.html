@@ -92,7 +92,8 @@
                             selected.children().remove()
                             $('#cours').append(selected);
                             count = 1;
-                        } if (count!= 0 &&(selected.appendTo('#cours'))){
+                        }
+                        if (count != 0 && (selected.appendTo('#cours'))) {
 
                             count = 1;
                         }
@@ -100,99 +101,105 @@
                 });
             });
 
-        var start = 0;
-        var end = 0;
-        var diff = 0;
-        var reset = false;
-        var timerID = 0;
+            var start = 0;
+            var end = 0;
+            var diff = 0;
+            var reset = false;
+            var timerID = 0;
 
-        $("#start").click(function(e) {
-            e.preventDefault();
-            Start();
-            return false;
-        });
+            $("#start").click(function(e) {
+                e.preventDefault();
+                Start();
+                return false;
+            });
 
-        $("#stop").click(function(e) {
-            e.preventDefault();
-            Stop();
-            return false;
-        });
+            $("#stop").click(function(e) {
+                e.preventDefault();
+                Stop();
+                return false;
+            });
 
-        $("#reset").click(function(e) {
-            e.preventDefault();
-            Reset();
-            Stop();
-            return false;
-        });
-
-        $('#fin').click(function(e) {
-            $(".active").detach();
-            $('#fait').append(selected);
-            selected.children().remove()
-            selected.removeClass()
-            Reset();
-            Stop();
-            count = 0;
-            return false;
-        });
-
-        function chrono() {
-            end = new Date();
-            diff = end - start;
-            diff = new Date(diff);
-            var sec = diff.getSeconds();
-            var min = diff.getMinutes();
+            $("#reset").click(function(e) {
+                e.preventDefault();
+                Reset();
+                Stop();
+                return false;
+            });
 
 
-            if (sec < 60) {
-                sec = "59" - sec;
-            }
-            if (min < 24) {
-                min = "24" - min;
-            }
 
-            $("#timer").html(min + " : " + sec);
-
-            if (min == 24 && sec == 55) {
-
-                var r = confirm("Avez vous fini?")
-                if (r == true) {
+            $('#fin').click(function(e) {
+                if (count != 0 && selected.appendTo('#cours')) {
+                    count = 0;
+                    }
                     $(".active").detach();
                     $('#fait').append(selected);
                     selected.children().remove()
                     selected.removeClass()
                     Reset();
                     Stop();
-                    count = 0;
-                    r == false;
-                } else {
-                    start = new Date();
+
+                    return false;
+
+            });
+
+            function chrono() {
+                end = new Date();
+                diff = end - start;
+                diff = new Date(diff);
+                var sec = diff.getSeconds();
+                var min = diff.getMinutes();
+
+
+                if (sec < 60) {
+                    sec = "59" - sec;
+                }
+                if (min < 24) {
+                    min = "24" - min;
+                }
+
+                $("#timer").html(min + " : " + sec);
+
+                if (min == 24 && sec == 55) {
+
+                    var r = confirm("Avez vous fini?")
+                    if (r == true) {
+                        $(".active").detach();
+                        $('#fait').append(selected);
+                        selected.children().remove()
+                        selected.removeClass()
+                        Reset();
+                        Stop();
+                        count = 0;
+                        r == false;
+                    } else {
+                        start = new Date();
+                    }
                 }
             }
-        }
 
-        function Start() {
-            if (reset) {
-                start = new Date();
-                reset = false;
-            } else {
-                start = new Date() - diff
-                start = new Date(start)
+            function Start() {
+                if (reset) {
+                    start = new Date();
+                    reset = false;
+                } else {
+                    start = new Date() - diff
+                    start = new Date(start)
+                }
+                timerID = setInterval(chrono, 10);
             }
-            timerID = setInterval(chrono, 10);
-        }
 
-        function Reset() {
-            $("#timer").html(" 25 : 00 ");
-            start = new Date();
-            reset = true;
+            function Reset() {
+                $("#timer").html(" 25 : 00 ");
+                start = new Date();
+                reset = true;
 
-        }
+            }
 
-        function Stop() {
-            $(".tog").toggle();
-            clearTimeout(timerID);
-        }
+            function Stop() {
+                $(".tog").toggle();
+                clearTimeout(timerID);
+            }
 
 
         });
