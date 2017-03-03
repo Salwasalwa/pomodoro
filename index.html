@@ -76,16 +76,13 @@
                     $(this).parent().remove();
                 })
 
-
                 $("li").click(function() {
                     var compteur = 0;
                     if ($("li").hasClass("active")) {
                         $("li").removeClass("active");
                     }
 
-
                     if (!$(this).hasClass("active")) {
-
 
                         selected = $(this).addClass("active")
 
@@ -95,12 +92,9 @@
                             $('#cours').append(selected);
                             count = 1;
                         }
-
                     }
                 })
             });
-
-
 
             var start = 0;
             var end = 0;
@@ -160,7 +154,6 @@
                         start = new Date();
                     }
                 }
-
             }
 
             function Start() {
@@ -185,7 +178,6 @@
                 $(".tog").toggle();
                 clearTimeout(timerID);
             }
-
         });
     </script>
 </body>
