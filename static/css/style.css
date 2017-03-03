@@ -59,7 +59,7 @@ button{
 }
 
 i {
-    margin-left: 3em;
+
     padding: 0.4em 0.5em;
     border-radius: 50%;
     color: #e6e6e6;
@@ -95,7 +95,7 @@ ul {
     border-right: none;
 }
 .col-md-4 {
-    min-height: 36em !important;
+    min-height: 50em !important;
     border-radius: 9px;
 }
 .col-md-2 {
