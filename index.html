@@ -110,6 +110,7 @@
             $("#reset").click(function(e) {
                 e.preventDefault();
                 Reset();
+                Stop();
                 return false;
             });
 
@@ -130,7 +131,7 @@
 
                 $("#timer").html(min + " : " + sec);
 
-                if (min == 24 && sec == 55) {
+                if (min == 24 && sec == 50) {
 
                     var r = confirm("Avez vous fini?")
                     if (r == true) {
@@ -139,7 +140,12 @@
                         selected.children().remove()
                         selected.removeClass()
                         Stop();
-                        Reset()
+                        Reset();
+                        $("#start").click(function(e) {
+                            e.preventDefault();
+                            Start();
+                            return false;
+                        });
 
                     } else {
                         start = new Date();
@@ -149,10 +155,12 @@
             }
 
             function Start() {
-                $(".tog").toggle();
-                start = new Date() - diff
-                start = new Date(start)
-                timerID = setInterval(chrono, -10);
+                if (reset) start = new Date();
+                else {
+                    start = new Date() - diff
+                    start = new Date(start)
+                }
+                timerID = setInterval(chrono, 10);
             }
 
             function Reset() {
