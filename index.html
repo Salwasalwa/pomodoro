@@ -39,7 +39,7 @@
                 <div class="no-padding divTitle">
                     <h2 class="fleche no-margin">En cours</h2>
                 </div>
-                <ul>
+                <ul id="cours">
                     <li><span id="timer">25 : 00</span></li>
                     <li><button type="button" name="button" class="encours" id="start">Début</button></li>
                     <li><button type="button" name="button" class="encours" id="stop">Pause</button></li>
@@ -66,6 +66,7 @@
             var tache;
             var litache;
             var selected;
+            var count;
             $("#ajouter").click(function() {
                 tache = $("#taches")
                 tache = tache.val();
@@ -74,14 +75,26 @@
                 $(".supprimer").click(function(li) {
                     $(this).parent().remove();
                 })
+
+
                 $("li").click(function() {
                     var compteur = 0;
                     if ($("li").hasClass("active")) {
                         $("li").removeClass("active");
                     }
 
+
                     if (!$(this).hasClass("active")) {
+
+
                         selected = $(this).addClass("active")
+
+                        if (count != 1) {
+
+                            selected.children().remove()
+                            $('#cours').append(selected);
+                            count = 1;
+                        }
 
                     }
                 })
@@ -139,13 +152,13 @@
                         $('#fait').append(selected);
                         selected.children().remove()
                         selected.removeClass()
-                        Stop();
+
+
                         Reset();
-                        $("#start").click(function(e) {
-                            e.preventDefault();
-                            Start();
-                            return false;
-                        });
+
+                        Stop();
+                        count = 0;
+
 
                     } else {
                         start = new Date();
@@ -159,6 +172,7 @@
                 else {
                     start = new Date() - diff
                     start = new Date(start)
+
                 }
                 timerID = setInterval(chrono, 10);
             }
@@ -167,14 +181,12 @@
                 $("#timer").html(" 25 : 00 ");
                 start = new Date();
                 reset = true;
-            }
 
+            }
             function Stop() {
                 $(".tog").toggle();
                 clearTimeout(timerID);
             }
-
-
 
         });
     </script>
