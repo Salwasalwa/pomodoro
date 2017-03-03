@@ -123,6 +123,7 @@
         });
 
         $('#fin').click(function(e) {
+            e.preventDefault();
             $(".active").detach();
             $('#fait').append(selected);
             selected.children().remove()
@@ -130,7 +131,7 @@
             Reset();
             Stop();
             count = 0;
-            // r == false;
+            return false;
         });
 
         function chrono() {
