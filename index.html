@@ -144,7 +144,7 @@
 
                 $("#timer").html(min + " : " + sec);
 
-                if (min == 24 && sec == 50) {
+                if (min == 24 && sec == 55) {
 
                     var r = confirm("Avez vous fini?")
                     if (r == true) {
@@ -152,14 +152,10 @@
                         $('#fait').append(selected);
                         selected.children().remove()
                         selected.removeClass()
-
-
                         Reset();
-
                         Stop();
                         count = 0;
-
-
+                        r == false;
                     } else {
                         start = new Date();
                     }
@@ -168,11 +164,13 @@
             }
 
             function Start() {
-                if (reset) start = new Date();
+                if (reset) {
+                    start = new Date();
+                    reset = false;
+                }
                 else {
                     start = new Date() - diff
                     start = new Date(start)
-
                 }
                 timerID = setInterval(chrono, 10);
             }
