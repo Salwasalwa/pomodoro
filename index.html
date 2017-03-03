@@ -78,19 +78,22 @@
                 })
 
                 $("li").click(function() {
-                    var compteur = 0;
+
                     if ($("li").hasClass("active")) {
                         $("li").removeClass("active");
                     }
 
                     if (!$(this).hasClass("active")) {
 
-                        selected = $(this).addClass("active")
 
                         if (count != 1) {
+                            selected = $(this).addClass("active")
 
                             selected.children().remove()
                             $('#cours').append(selected);
+                            count = 1;
+                        } if (count!= 0 &&(selected.appendTo('#cours'))){
+
                             count = 1;
                         }
                     }
