@@ -39,6 +39,7 @@
                 <div class="no-padding divTitle">
                     <h2 class="fleche no-margin">En cours</h2>
                 </div>
+                <ul>
                 <li><span id="timer">25 : 00</span></li>
                 <li><button type="button" name="button" class="encours" id="start">Début</button></li>
                 <li><button type="button" name="button" class="encours" id="stop">Pause</button></li>
@@ -59,8 +60,7 @@
     <script src="./static/external/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
 
     <script src="./static/js/script.js" charset="utf-8"></script>
-</body>
-<script type="text/javascript">
+    <script type="text/javascript">
     $(document).ready(function() {
         var tache;
         var litache;
@@ -71,6 +71,16 @@
             $("#faire").append(litache)
             $(".supprimer").click(function(li) {
                 $(this).parent().remove();
+            })
+            $("li").click(function() {
+                var compteur = 0;
+                if ($("li").hasClass("active")) {
+                    $("li").removeClass("active");
+                }
+
+                if (!$(this).hasClass("active")) {
+                    $(this).addClass("active")
+                }
             })
         });
 
@@ -139,5 +149,6 @@
 
     });
 </script>
+</body>
 
 </html>
